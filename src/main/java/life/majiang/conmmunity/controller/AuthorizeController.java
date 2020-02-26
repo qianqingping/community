@@ -1,6 +1,7 @@
 package life.majiang.conmmunity.controller;
 
 import life.majiang.conmmunity.dto.AccessTokenDto;
+import life.majiang.conmmunity.dto.GithubUser;
 import life.majiang.conmmunity.provider.GithubPrivider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,9 @@ public class AuthorizeController {
         accessTokenDto.setCode(code);
         accessTokenDto.setRedirect_url("http://localhost:8887/callback");
         accessTokenDto.setState(state);
-        githubPrivider.getAccessToken(accessTokenDto);
+        String accessToken = githubPrivider.getAccessToken(accessTokenDto);
+        GithubUser user = githubPrivider.getUer(accessToken);
+        System.out.println(user.getName());
         return"index";
 
     }
