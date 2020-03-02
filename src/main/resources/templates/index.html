@@ -40,6 +40,7 @@
 
                     </ul>
                 </li>
+                <li th:if="${session.user!=null}"><a href="/publish">发布</a> </li>
                 <li th:if="${session.user==null}"><a href="https://github.com/login/oauth/authorize?client_id=Iv1.da649b87bf24b198&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a></li>
 
             </ul>

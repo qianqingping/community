@@ -48,7 +48,7 @@ public class AuthorizeController {
         accessTokenDto.setState(state);
         String accessToken = githubPrivider.getAccessToken(accessTokenDto);
         GithubUser githubUser = githubPrivider.getUer(accessToken);
-        if(githubUser!=null){
+        if(githubUser!=null && githubUser.getId()!= null){
             //登录成功，xiecookie和session
             User user =  new User();
             String token = UUID.randomUUID().toString();
