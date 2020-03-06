@@ -53,16 +53,17 @@
         <!--左边布局-->
         <div class="col-lg-9 col-md-12 col-xs-12" >
             <h2 style="border-bottom: rgba(255,255,255,0.8) 1px solid;line-height: 2em "><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp发现</h2>
-            <div class="media">
+            <div class="media" th:each="question: ${questions}">
                 <div class="media-left">
                     <a href="#">
                         <img class="media-object img-thumbnail" src="imges/11111.jpg" alt="error" style="height: 50px;width: 50px">
                     </a>
                 </div>
                 <div class="media-body" style="padding-top: 5px">
-                    <h4 class="media-heading">快速springboot开发</h4>
-                    点击进入<br>
-                    <span class="text-decr" style="font-size: 10px; font-weight: normal; color: #999999">2个回复·31次浏览·1小时前</span>
+                    <h4 class="media-heading" th:text="${question.title}">快速springboot开发</h4>
+                    <span th:text="${question.description}"></span><br>
+                    <span class="text-decr" style="font-size: 10px; font-weight: normal; color: #999999">
+                        <span th:text="${question.comment_count}"></span>个回复·<span th:text="${question.view_count}"></span>次浏览· </span>
                 </div>
             </div>
         </div>
