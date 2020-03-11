@@ -9,8 +9,25 @@ public class PaginationDto {
     private boolean showFirstPage;
     private boolean showNext;
     private boolean showEndPage;
-    private Integer cruuentPage;
+    private Integer page;
+    private Integer totalPage;
     private List<Integer> pages = new ArrayList<>();
+
+    public Integer getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(Integer totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
 
     public List<QuestionDto> getQuestions() {
         return questions;
@@ -52,13 +69,7 @@ public class PaginationDto {
         this.showEndPage = showEndPage;
     }
 
-    public Integer getCruuentPage() {
-        return cruuentPage;
-    }
 
-    public void setCruuentPage(Integer cruuentPage) {
-        this.cruuentPage = cruuentPage;
-    }
 
     public List<Integer> getPages() {
         return pages;
@@ -69,19 +80,24 @@ public class PaginationDto {
     }
 
     public void setPageination(Integer totalCount, Integer page, Integer size) {
-        Integer totalPage;
-        if(totalCount%size == 0){
+
+        if(totalCount % size == 0){
             totalPage = totalCount/size;
         }else {
             totalPage = totalCount/size+1;
         }
+
+
+
+        this.page = page;
+
         pages.add(page);
-        for ( int i=0;i<=3;i++){
+        for ( int i=1;i<=3;i++){
             if (page-i>0){
-                pages.add(page-i,0);
+                pages.add(0,page-i);
             }
-            if (page+i<=totalCount){
-                pages.add(page+1);
+            if (page+i<=totalPage){
+                pages.add(page+i);
             }
         }
 
