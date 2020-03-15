@@ -1,7 +1,6 @@
 package life.majiang.conmmunity.controller;
 
 import life.majiang.conmmunity.mapper.QuestionMapper;
-import life.majiang.conmmunity.mapper.UserMapper;
 import life.majiang.conmmunity.model.Question;
 import life.majiang.conmmunity.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -23,8 +21,7 @@ public class PublishController {
     @Autowired
     private QuestionMapper questionMapper;
 
-    @Autowired
-    private UserMapper userMapper;
+
 
     @GetMapping("/publish")
     public String publish(){
@@ -38,19 +35,8 @@ public class PublishController {
                             HttpServletRequest request,
                             Model model
     ){
-        User user = null;
-        Cookie[] cookies = request.getCookies();
-        if(cookies != null && cookies.length!=0)
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("token")){
-                String token =cookie.getValue();
-                user =userMapper.findByToken(token);
-                if(user!=null){
-                    request.getSession().setAttribute("user",user);
-                }
-                break;
-            }
-        }
+
+        User user = (User)request.getSession().getAttribute("user");
         if(user==null){
             model.addAttribute("erro","用户未登录");
             return "publish";

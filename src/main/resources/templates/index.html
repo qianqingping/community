@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <script src="js/jquery-3.3.1.min.js" ></script>
     <script src="js/bootstrap.min.js" type="application/javascript"></script>
- </head>
+</head>
 <body>
 <div th:insert="navigation :: nav"></div>
 <!--中间-->
@@ -23,7 +23,9 @@
                     </a>
                 </div>
                 <div class="media-body" style="padding-top: 5px">
-                    <h4 class="media-heading" th:text="${question.title}">快速springboot开发</h4>
+                    <h4 class="media-heading" >
+                        <a th:href="@{'question/'+${question.id}}" th:text="${question.title}"></a>
+                    </h4>
                     <span th:text="${question.description}"></span><br>
                     <span class="text-decr" style="font-size: 10px; font-weight: normal; color: #999999">
                         <span th:text="${question.comment_count}"></span>个回复·<span th:text="${question.view_count}"></span>次浏览·<span th:text="${#dates.format(question.gmt_create,'yyyy-MMa-dd HH:mm')}"></span>
