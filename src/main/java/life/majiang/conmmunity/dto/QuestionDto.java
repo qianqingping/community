@@ -7,12 +7,12 @@ public class QuestionDto {
     private String title;
     private String description;
     private String tag;
-    private Long gmt_create;
-    private Long gmt_modified;
+    private Long gmtCreate;
+    private Long gmtModified;
     private Integer creator;
-    private Integer view_count;
-    private Integer comment_count;
-    private Integer like_count;
+    private Integer viewCount;
+    private Integer commentCount;
+    private Integer likeCount;
     private User user;
 
     public int getId() {
@@ -47,21 +47,7 @@ public class QuestionDto {
         this.tag = tag;
     }
 
-    public Long getGmt_create() {
-        return gmt_create;
-    }
 
-    public void setGmt_create(Long gmt_create) {
-        this.gmt_create = gmt_create;
-    }
-
-    public Long getGmt_modified() {
-        return gmt_modified;
-    }
-
-    public void setGmt_modified(Long gmt_modified) {
-        this.gmt_modified = gmt_modified;
-    }
 
     public Integer getCreator() {
         return creator;
@@ -71,28 +57,44 @@ public class QuestionDto {
         this.creator = creator;
     }
 
-    public Integer getView_count() {
-        return view_count;
+    public Integer getViewCount() {
+        return viewCount;
     }
 
-    public void setView_count(Integer view_count) {
-        this.view_count = view_count;
+    public void setViewCount(Integer viewCount) {
+        this.viewCount = viewCount;
     }
 
-    public Integer getComment_count() {
-        return comment_count;
+    public Integer getCommentCount() {
+        return commentCount;
     }
 
-    public void setComment_count(Integer comment_count) {
-        this.comment_count = comment_count;
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
     }
 
-    public Integer getLike_count() {
-        return like_count;
+    public Long getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setLike_count(Integer like_count) {
-        this.like_count = like_count;
+    public void setGmtCreate(Long gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Long getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Long gmtModified) {
+        this.gmtModified = gmtModified;
+    }
+
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
     }
 
     public User getUser() {
